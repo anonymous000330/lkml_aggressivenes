@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Studying Aggressiveness on the Linux Kernel Mailing List: A Methodological Challenge</title>
+
+    <link href="./bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/ekko-lightbox.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="./bootstrap/css/custom.css" media="screen">
+    <link rel="stylesheet" href="./bootstrap/css/pygment.css" media="screen">
+
+</head>
+<body class="pt-0">
+
+
+<header class="jumbotron">
+    <div class="container">
+
+        <h1>
+            Studying Aggressiveness on the Linux Kernel Mailing List: <br> A Methodological Challenge<br>
+        </h1>
+        <p class="paper-venue">
+            &mdash; Supplementary Website
+        </p>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- Navigation
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="navigation">Navigation</h2>
+        </header>
+
+        <nav class="nav flex-column border-top border-bottom">
+            <a class="nav-link" href="#abstract">Abstract</a>
+            <a class="nav-link" href="#data">Data Extraction and Processing</a>
+            <a class="nav-link" href="#data">Annotation Study</a>
+            <a class="nav-link" href="#results">Results</a>
+            <a class="nav-link" href="#literaturereview">Literature Review</a>
+            <a class="nav-link" href="#downloads">Downloads</a>
+            <!--<a class="nav-link" href="#contact">Contact</a>-->
+        </nav>
+    </section>
+
+
+   <!-- Overview
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="abstract">Abstract</h2>
+        </header>
+
+        <p>
+           Communication among software developers plays
+an essential role in open-source software (OSS) projects. Not
+unexpectedly, previous studies have shown that the conversational
+tone and, in particular, aggressiveness influence the participation
+of developers in OSS projects. Our overarching goal is to
+study aggressive communication behavior and its consequences
+on the Linux Kernel Mailing List (LKML), which is known
+for aggressive e-mails of some of its contributors. As a first
+step, we attempted to assess the extent of aggressiveness of
+720 developer e-mails with a human annotation study, involving
+multiple annotators, to select a suitable sentiment analysis tool.
+To our surprise, the results of our annotation study revealed
+that there is substantial disagreement, among tools and even
+among humans, which uncovers the methodological challenge
+of studying aggressiveness in the software-engineering domain.
+Consequently, we dug deeper and investigated why the agreement
+among humans is generally low, based on manual investigations
+of ambiguously rated e-mails. Our results illustrate that human
+perception is individual and context dependent, especially when it
+comes to technical content. Thus, when identifying aggressiveness
+in software-engineering texts, it is not sufficient to rely on
+aggregated measures of human annotations. Hence, sentiment
+analysis tools specifically trained on human-annotated data do
+not necessarily match human perception of aggressiveness, and
+corresponding results need to be taken with a grain of salt. By
+reporting our results and experience, we aim at raising awareness
+of this methodological challenge when studying aggressiveness
+(and sentiment, in general) in the software-engineering domain.
+        </p>
+
+        <p>
+            <strong>Keywords:</strong>
+            <span class="badge badge-light">Human Factor</span>
+            <span class="badge badge-light">Sentiment Analysis</span>
+            <span class="badge badge-light">Developer Communication</span>
+        </p>
+    </section>
+
+
+    <!-- Tools
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="data">Data Extraction and Processing</h2>
+        </header>
+
+        <p>
+            We downloaded the e-mails of the Linux Kernel Mailing List (LKML) from the mailing-list archive <a class="tool">Gmane</a>
+            using the tool <a href="https://github.com/xai/nntp2mbox/" class="card-link">https://github.com/xai/nntp2mbox/</a>, providing the list name <tt>gmane.linux.kernel</tt>.
+        </p>
+        <p>
+            Afterwards, we processed the header and the content of these e-mails, using our script "list-mbox.py" (see directory "data_collection" in our downloaded archive in the <a href="#downloads">Downloads</a> section).
+            Then, we extracted the names from the header and generated a list of potential names, to be used for anonymizing the e-mail content and replacing names with tokens that indicate what role the respective person played (sender, recipient, cc recipient). For data-privacy reasons, we cannot publish the names files.
+            Finally, we removed all citations and formatted the e-mail, using our script "dictify.py" (see also directory "data_collection").
+        </p>
+        <p>
+            All the scripts mentioned here can be found in the downloadable zip archive in the download section.
+        </p>
+    </section>
+
+    <!-- Annotation Study
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="annotationstudy">Annotation Study</h2>
+        </header>
+        <p>
+            In the following, we provide images of the tutorial e-mails and all the 720 e-mails that were part of our annotation study.
+            The formatting and layouting of the e-mails is conform with the formatting and layouting in which we had shown the e-mails to the annotators.
+            The order of the e-mails in the following is in line with the order in which the e-mails were shown to the annotators.
+            Each of these e-mails was annotated by 6 to 9 annotators.
+            (For data privacy and copyright reasons, we cannot distribute the raw e-mail data as plain text, which is why generated images out of it.)
+        </p>
+
+        <style>
+            center {
+                text-align: center;
+            }
+
+            .button {
+                border: none;
+                color: black;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
+        <details>
+            <summary>Show tutorial e-mails</summary>
+            <p>
+                The following images display the 10 e-mails that were part of our tutorial, which was mandatory for all annotators before the actual annotation study began.
+                The e-mails' contents have been provided together with an ID and an example rating:
+            </p>
+            <center>
+                <button class="button" onclick="prev_img_tut(1)">&#10094;</button>
+                &nbsp;
+                <label id="img_tut_info">Text</label>
+                &nbsp;
+                <button class="button" onclick="next_img_tut(1)">&#10095;</button>
+                <br><br>
+                <img id="img_tut_display" src="mail-imgs-tutorial/mail_1.png">
+            </center>
+            <br><br>
+        </details>
+
+        <details>
+            <summary>Show all 720 e-mails of our annotation study</summary>
+            <p>
+                The following images display the 720 e-mails that were part of our annotation study in the actual order in which the e-mails were shown to the annotators:
+            </p>
+            <center>
+                <button class="button" onclick="prev_img(10)">&#10094;&#10094;</button>
+                &nbsp;
+                <button class="button" onclick="prev_img(1)">&#10094;</button>
+                &nbsp;
+                <label id="img_info">Text</label>
+                &nbsp;
+                <button class="button" onclick="next_img(1)">&#10095;</button>
+                &nbsp;
+                <button class="button" onclick="next_img(10)">&#10095;&#10095;</button>
+                <br><br>
+                <img id="img_display" src="mail-imgs/mail_1.png">
+            </center>
+            <br><br>
+        </details>
+
+        <details>
+            <summary>Show the 92 e-mails where the annotators disagreed on the overall label</summary>
+            <p>
+                The following images display the 92 e-mails of our annotation study for which we received inconclusive annotation labels (i.e., more than one annotator disagreed with the annotation result of the rest of the annotators.) These e-mails were part of our detailed manual investigations on why the inter-rater agreement on these e-mails is considerably low:
+            </p>
+            <center>
+                <button class="button" onclick="prev_img_unsure(10)">&#10094;&#10094;</button>
+                &nbsp;
+                <button class="button" onclick="prev_img_unsure(1)">&#10094;</button>
+                &nbsp;
+                <label id="img_unsure_info">Text</label>
+                &nbsp;
+                <button class="button" onclick="next_img_unsure(1)">&#10095;</button>
+                &nbsp;
+                <button class="button" onclick="next_img_unsure(10)">&#10095;&#10095;</button>
+                <br><br>
+                <img id="img_unsure_display" src="mail-imgs-unsure/mail_2.png">
+            </center>
+            <br><br>
+        </details>
+
+        <script>
+            var img_index = 1;
+            var min_index = 1;
+            var max_index = 720;
+            var img_index_unsure = 1;
+            var min_index_unsure = 1;
+            var max_index_unsure = 92;
+            var img_index_tut = 1;
+            var min_index_tut = 1;
+            var max_index_tut = 10;
+
+            var img = document.getElementById("img_display");
+            var img_info = document.getElementById("img_info");
+            var img_unsure = document.getElementById("img_unsure_display");
+            var img_unsure_info = document.getElementById("img_unsure_info");
+            var img_tut = document.getElementById("img_tut_display");
+            var img_tut_info = document.getElementById("img_tut_info");
+
+            show_img();
+            show_img_unsure();
+            show_img_tut();
+
+            function next_img_tut(n) {
+                img_index_tut += n;
+                if (img_index_tut > max_index_tut) {
+                    img_index_tut = min_index_tut;
+                }
+                show_img_tut();
+            }
+
+            function prev_img_tut(n) {
+                img_index_tut -= n;
+                if (img_index_tut < min_index_tut) {
+                    img_index_tut = max_index_tut;
+                }
+                show_img_tut();
+            }
+
+            function next_img(n) {
+                img_index += n;
+                if (img_index > max_index) {
+                    img_index = min_index;
+                }
+                show_img();
+            }
+
+            function prev_img(n) {
+                img_index -= n;
+                if (img_index < min_index) {
+                    img_index = max_index;
+                }
+                show_img();
+            }
+
+            function next_img_unsure(n) {
+                img_index_unsure += n;
+                if (img_index_unsure > max_index_unsure) {
+                    img_index_unsure = min_index_unsure;
+                }
+                show_img_unsure();
+            }
+
+            function prev_img_unsure(n) {
+                img_index_unsure -= n;
+                if (img_index_unsure < min_index_unsure) {
+                    img_index_unsure = max_index_unsure;
+                }
+                show_img_unsure();
+            }
+
+            function show_img_tut() {
+                var path = "mail-imgs-tutorial/mail_" + img_index_tut + ".png";
+                img_tut.src = path;
+                img_tut_info.innerHTML = "Mail " + img_index_tut + "/" + max_index_tut;
+            }
+
+            function show_img() {
+                var path = "mail-imgs/mail_" + img_index + ".png";
+                img.src = path;
+                img_info.innerHTML = "Mail " + img_index + "/" + max_index;
+            }
+
+            function show_img_unsure() {
+                var path = "mail-imgs-unsure/mail_" + img_index_unsure + ".png";
+                img_unsure.src = path;
+                img_unsure_info.innerHTML = "Mail " + img_index_unsure + "/" + max_index_unsure;
+            }
+        </script>
+
+        <br>
+        <details>
+        	<summary>Show background information about the annotators</summary>
+        	<a> <i>experience:</i> 1 (novice) to 10 (expert)</a><br>
+        	<a> <i>experience compared to colleagues:</i> 1 (junior) to 5 (expert) </a><br>
+        	<a> <i>paradigms:</i> 0 (very unfamiliar) to 4 (very familiar)</a><br>
+        	<a> <i>num opensource:</i> 0 (contributions to no OSS project), 1 (contributions to 1-2 OSS projects), 2 (contributions to more than 2 OSS projects)</a>
+        <table class="table table-bordered table-hover table-condensed">
+<thead class="bg-secondary"><tr><th >user_id</th>
+<th>age</th>
+<th>gender</th>
+<th>experience</th>
+<th>experience compared to colleagues</th>
+<th>familiar coding languages</th>
+<th>paradigm objectoriented</th>
+<th>paradigm functional</th>
+<th>paradigm imperative</th>
+<th>paradigm logic</th>
+<th>num opensource</th>
+</tr></thead>
+<tbody><tr>
+<td align="right">14</td>
+<td>25-34</td>
+<td>female</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td>R, Python, SQL</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td>18-24</td>
+<td>male</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td>Java;R;C;Python</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">31</td>
+<td>-</td>
+<td>female</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td>Java; Haskell; R</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td>25-34</td>
+<td>female</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td>python</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td>18-24</td>
+<td>male</td>
+<td align="right">6</td>
+<td align="right">2</td>
+<td>Java; Python; R</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>25-34</td>
+<td>female</td>
+<td align="right">6</td>
+<td align="right">3</td>
+<td>R; python; Java; Haskell</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>25-34</td>
+<td>male</td>
+<td align="right">8</td>
+<td align="right">3</td>
+<td>Java; R; Python; Scala; Haskell; Bash;</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">32</td>
+<td>18-24</td>
+<td>male</td>
+<td align="right">8</td>
+<td align="right">3</td>
+<td>Java; R; Python</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td>25-34</td>
+<td>male</td>
+<td align="right">8</td>
+<td align="right">4</td>
+<td>Java;Python;C;Bash;awk</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>25-34</td>
+<td>male</td>
+<td align="right">9</td>
+<td align="right">4</td>
+<td>R;Python;Java</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+</tbody></table>
+          </details>
+
+
+          <details>
+            <summary>Show screenshot of annotation tool and annotation guidelines</summary>
+            <p>
+                Here is an example screenshot from our annotation tool (not showing any guidelines, but there is a "guidelines" button at the top of the e-mail to be annotated:
+            </p>
+            <center>
+                <br><br>
+                <img src="screenshot-anto-test-anonymized.png">
+            </center>
+            <br><br>
+            <p>
+                The following annotation guidelines have been shown to the annotators before the start of the annotation study, and were also available during annotation via a button on the top of the annotation e-mail:
+            </p>
+            <center>
+                <br><br>
+                <img src="annotation-guidelines.png">
+            </center>
+            <br><br>
+            <p>
+                When clicking on the link "annotated samples" at the end of the annotation guidelines (as can be seen in the screenshot above), further examples were shown to the annotators, which we also provide here: <br>
+                <div align="center"><a href="annotated_samples.html">Check out these annotated samples.</a></div>
+            </p>
+        </details>
+
+    </section>
+
+    <!-- Results
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="results">Results</h2>
+        </header>
+        <p>
+            Our results are arranged into three sections <b>(??)</b>:
+            <br>
+            <ul>
+                <li class="list-item"><a href="#results-ira" class="nav-link">Inter-Rater Agreement</a></li>
+                <li class="list-item"><a href="#results-plots" class="nav-link">Annotation Insights</a></li>
+                <li class="list-item"><a href="#results-tools" class="nav-link">Tool Results</a></li>
+            </ul>
+        </p>
+
+        <h3 id="results-ira"><span>Inter-Rater Agreement</span></h3>
+
+        <a>K's &alpha;: Krippendorff's alpha  (0 perfect disagreement, 1 perfect agreement, customary to require 0.8)</a><br>
+        <a>ICC: Inter-Correlation-Coefficient (0 perfect disagreement, 1 perfect agreement, 0.75 good reliability)</a><br>
+        <table class="table table-hover">
+        <colgroup span="4"></colgroup>
+  <colgroup span="4"></colgroup>
+    <tr class="bg-secondary">
+        <td>Group</td>
+        <td colspan="6" scope="colgroup" class="bg-tertiary">Binary Label</td>
+        <td colspan="6" scope="colgroup">Multi Label</td>
+    </tr>
+    <tr class="bg-secondary">
+
+        <td></td>
+        <td colspan="2" scope="colgroup" class="bg-tertiary">all annotations</td>
+        <td colspan="2" scope="colgroup" class="bg-tertiary">excl. unsure (>= 4 sure)</td>
+        <td colspan="2" scope="colgroup" class="bg-tertiary">excl. unsure</td>
+        <td colspan="2" scope="colgroup">all annotations</td>
+        <td colspan="2" scope="colgroup">excl. unsure (>= 4 sure)</td>
+        <td colspan="2" scope="colgroup">excl. unsure</td>
+    </tr>
+    <tr class="bg-secondary">
+        <td></td>
+        <td class="bg-tertiary">ICC</td>
+        <td class="bg-tertiary">K's &alpha;</td>
+        <td class="bg-tertiary">ICC</td>
+        <td class="bg-tertiary">K's &alpha;</td>
+        <td class="bg-tertiary">ICC</td>
+        <td class="bg-tertiary">K's &alpha;</td>
+        <td>ICC</td>
+        <td>K's &alpha;</td>
+        <td>ICC</td>
+        <td>K's &alpha;</td>
+        <td>ICC</td>
+        <td>K's &alpha;</td>
+    </tr>
+    <tr>
+        <td>all</td>
+        <td>0.49</td>
+        <td>0.49</td>
+        <td>0.53</td>
+        <td>0.52</td>
+        <td>0.53</td>
+        <td>0.52</td>
+        <td>0.50</td>
+        <td>0.43</td>
+        <td>0.52</td>
+        <td>0.44</td>
+        <td>0.52</td>
+        <td>0.44</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>male</td>
+        <td>0.51</td>
+        <td>0.51</td>
+        <td>0.53</td>
+        <td>0.53</td>
+        <td>0.53</td>
+        <td>0.53</td>
+        <td>0.51</td>
+        <td>0.43</td>
+        <td>0.52</td>
+        <td>0.44</td>
+        <td>0.53</td>
+        <td>0.44</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>female</td>
+        <td>0.33</td>
+        <td>0.37</td>
+        <td>0.33</td>
+        <td>0.37</td>
+        <td>0.41</td>
+        <td>0.43</td>
+        <td>0.46</td>
+        <td>0.45</td>
+        <td>0.46</td>
+        <td>0.45</td>
+        <td>0.52</td>
+        <td>0.49</td>
+    </tr>
+    <tr>
+        <td>contribution to no OSS project</td>
+        <td>0.57</td>
+        <td>0.57</td>
+        <td>0.57</td>
+        <td>0.57</td>
+        <td>0.60</td>
+        <td>0.60</td>
+        <td>0.61</td>
+        <td>0.57</td>
+        <td>0.61</td>
+        <td>0.57</td>
+        <td>0.63</td>
+        <td>0.58</td>
+    </tr>
+    <tr>
+        <td>contribution to >= 1 OSS projects</td>
+        <td>0.44</td>
+        <td>0.44</td>
+        <td>0.46</td>
+        <td>0.45</td>
+        <td>0.48</td>
+        <td>0.47</td>
+        <td>0.42</td>
+        <td>0.33</td>
+        <td>0.43</td>
+        <td>0.34</td>
+        <td>0.45</td>
+        <td>0.35</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>contribution to <= 2 OSS projects</td>
+        <td>0.53</td>
+        <td>0.53</td>
+        <td>0.55</td>
+        <td>0.55</td>
+        <td>0.56</td>
+        <td>0.56</td>
+        <td>0.57</td>
+        <td>0.52</td>
+        <td>0.58</td>
+        <td>0.53</td>
+        <td>0.60</td>
+        <td>0.55</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>contribution to > 2 OSS projects</td>
+        <td>0.45</td>
+        <td>0.46</td>
+        <td>0.45</td>
+        <td>0.46</td>
+        <td>0.49</td>
+        <td>0.48</td>
+        <td>0.43</td>
+        <td>0.35</td>
+        <td>0.43</td>
+        <td>0.35</td>
+        <td>0.45</td>
+        <td>0.34</td>
+    </tr>
+    <tr>
+        <td>experience: 1-5</td>
+        <td>0.55</td>
+        <td>0.46</td>
+        <td>0.55</td>
+        <td>0.46</td>
+        <td>0.62</td>
+        <td>0.51</td>
+        <td>0.58</td>
+        <td>0.48</td>
+        <td>0.58</td>
+        <td>0.38</td>
+        <td>0.64</td>
+        <td>0.52</td>
+    </tr>
+    <tr>
+        <td>experience: 6-10</td>
+        <td>0.50</td>
+        <td>0.51</td>
+        <td>0.52</td>
+        <td>0.52</td>
+        <td>0.53</td>
+        <td>0.52</td>
+        <td>0.48</td>
+        <td>0.40</td>
+        <td>0.49</td>
+        <td>0.41</td>
+        <td>0.50</td>
+        <td>0.51</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>experience compared to colleagues: 1-2</td>
+        <td>0.54</td>
+        <td>0.52</td>
+        <td>0.54</td>
+        <td>0.52</td>
+        <td>0.59</td>
+        <td>0.56</td>
+        <td>0.60</td>
+        <td>0.55</td>
+        <td>0.60</td>
+        <td>0.55</td>
+        <td>0.63</td>
+        <td>0.58</td>
+    </tr>
+    <tr  class="bg-light">
+        <td>experience compared to colleagues: 3-5</td>
+        <td>0.45</td>
+        <td>0.46</td>
+        <td>0.47</td>
+        <td>0.47</td>
+        <td>0.49</td>
+        <td>0.49</td>
+        <td>0.45</td>
+        <td>0.38</td>
+        <td>0.45</td>
+        <td>0.38</td>
+        <td>0.47</td>
+        <td>0.39</td>
+    </tr>
+</table>
+
+        <center>
+            <img src="plots/IRA_most_prominent_target.svg" width="700">
+            <p>
+                Each circle represents one single e-mail.
+                An e-mail is put into the column matching the most prominent target category.
+                The height of a circle displays the Krippendorff's Alpha interrater-agreement coefficient of the corresponding e-mail.
+            </p>
+        </center>
+<hr>
+
+        <h3 id="results-plots"><span>Annotation Insights</span></h3>
+        <p>
+            The following plots give insights into the annotation data.
+        </p>
+        <center>
+            <img src="plots/ambiguous_mails_aggr_distr.svg" width="900">
+            <p>
+                Each bar on the x-axis represents one of the 76 ambiguous e-mails.
+                The bars show the distribution of the overall label;
+                the total height of each bar matches with the number of reviewers that annotated the respective e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/ambiguous-mails-qualitative-eval.svg" width="900">
+            <p>
+                The plot shows how many of the 76 e-mails categorized as "ambiguous" are put in one of five sub-categories,
+                depending on the content and based on manual investigation.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/target_distr_unsure.svg" width="900">
+            <p>
+                Each bar on the x-axis represents one of the 92 e-mails with disagreement among the annotators (more than one deviates from the annotation result of the majority of annotators).
+                The bars show the number of aggression targets for each category.
+                Hereby, the targets have been summarized to only four categories in order to increase readability.
+                The total number of targets can exceed the number of raters,
+                as each rater can give multiple targets.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/target_distr_non_unsure_aggressive.svg" width="700">
+            <p>
+                Each bar on the x-axis represents one e-mail that is not categorized unsure and rated aggressive (by all or all but one raters).
+                The bars show the number of aggression targets for each category.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/target_distr_non_unsure_notaggressive_clean.svg" width="1000">
+            <p>
+                Each bar on the x-axis represents one e-mail that is not categorized unsure and rated <u>not</u> aggressive (by all or all
+                but one raters).
+                The bars show the number of aggression targets for each category.
+                E-mails only having "none" or "other" targets are omitted for the sake of readability.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_aggression_first_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the first batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of aggressive votes for this e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_aggression_second_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the second batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of aggressive votes for this e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_target_none_first_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the first batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of "none" target votes for this e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_target_none_second_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the second batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of "none" target votes for this e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_target_not_none_first_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the first batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of target votes that are <u>not</u> "none" for this e-mail.
+            </p>
+        </center>
+        <hr>
+        <center>
+            <img src="plots/lin_regr_target_not_none_second_prestudy.svg" width="900">
+            <p>
+                Each marker represents a single e-mail (there are 360 e-mails in the second batch), the x-axis represents the order of the e-mails from left to right.
+                The height of the points shows the relative amount of target votes that are <u>not</u> "none" for this e-mail.
+            </p>
+        </center>
+        <hr>
+
+
+
+
+        <h3 id="results-tools"><span>Tool Results</span></h3>
+
+        For the sake of completeness, we used the four tools sentiment-analysis tools<a class="tool">Perspective API</a>, <a class="tool">Stanford CoreNLP</a></td>,
+        <a class="tool">VADER</a>, and <a class="tool">SentiStrength-SE</a> on our 720 sampled e-mails. In addition, we used four different e-mail proprocessings:
+        removing only citations, additionally removing URLs, e-mail addresses, and signatures, additionally removing developer names, and, finally, also removing code snippets, in addition).
+        In what follows we provide information the tools' aggreement as well as on the tools' accuracy with respect to human-annotated data (which needs to be taken with a grain of salt, due to the generally low agreement among the humans).
+        More information how we have used the tools can be found in the downloadable zip archive in the <a href="#downloads">Downloads</a> section (see the "tools" directory).
+        </p>
+        <hr>
+
+        <p>First of all, we compared the tool results against each other and computed the inter-tool agreement:</p>
+
+        <a>K's &alpha;: Krippendorff's alpha  (0 perfect disagreement, 1 perfect agreement, customary to require 0.8)</a><br>
+        <a>ICC: Inter-Correlation-Coefficient (0 perfect disagreement, 1 perfect agreement, 0.75 good reliability)</a><br>
+        <table class="table table-hover">
+        <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
+    <tr class="bg-secondary">
+        <td>Preprocessing</td>
+        <td colspan="2" scope="colgroup" class="bg-tertiary">Binary Label</td>
+    </tr>
+    </tr>
+    <tr class="bg-secondary">
+        <td></td>
+        <td class="bg-tertiary">ICC</td>
+        <td class="bg-tertiary">K's &alpha;</td>
+    </tr>
+    <tr>
+        <td>Remove citations</td>
+        <td>0.03</td>
+        <td>0.03</td>
+    </tr>
+        <tr>
+        <td>+ URLs, e-mail addr., signatures</td>
+        <td>0.00</td>
+        <td>0.00</td>
+    </tr>
+        <tr>
+        <td>+ developer names</td>
+        <td>-0.01</td>
+        <td>-0.01</td>
+    </tr>
+        <tr>
+        <td>+ code snippets</td>
+        <td>-0.07</td>
+        <td>-0.07</td>
+    </tr>
+
+</table>
+<hr><br>
+
+<p>Then, we compared the tools' results against human annotations. As the human inter-rater agreement was generally low, we constructed three different ground truths for comparison by aggregating the annotation data in different ways:
+<ul>
+        <li><i>GT1: </i>An e-mail is aggressive if the mean of its annotations is aggressive (excluding unsure annotations if there are ≥ 4 sure annotations for an e-mail).</li>
+        <li><i>GT2: </i>An e-mail is aggressive if, at least, one person has labeled it as aggressive (excluding all unsure annotations).</li>
+        <li><i>GT3: </i>Only e-mails where all but one persons agreed on the same binary label (excluding all unsure annotations).</li>
+</ul>
+  Whereas <i>GT1</i> uses a measure of central tendency, <i>GT3</i> uses only the subset of e-mail for which the annotators agreed on the binary label.
+  Consequently, for comparing the tools' results with human-annotated data, <i>GT3</i> is the most reliable one of our ground truths, as it only considers e-mails with human agreement.
+  Notice, however, that all three ground truths are not reliable, in general, according to the generally low agreement or due to ignoring e-mails with diagreement. In the following, we provide the accuracy of the tools with respect ot the different ground truths for different e-mail preprocessings:</p>
+
+        <a>Accuracy (F1 score) of Sentiment Analysis Tools when evaluated against <i>GT1</i>:</a>
+    <table class="table table-hover">
+    <tr class="bg-secondary">
+        <td>Preprocessing</td>
+        <td><a class="tool">Perspective API</a></td>
+        <td><a class="tool">Stanford CoreNLP</a></td>
+        <td><a class="tool">VADER</a></td>
+        <td><a class="tool">SentiStrength-SE</a></td>
+    </tr>
+    <tr>
+        <td>Remove citations</td>
+        <td align="center" class="number-float">0.56</td>
+        <td align="center" class="number-float">0.20</td>
+        <td align="center" class="number-float">0.29</td>
+        <td align="center" class="number-float">pos* 0.34<br>neg* 0.58</td>
+    </tr>
+    <tr class="bg-light">
+        <td>+ URLs, e-mail addr., signatures</td>
+        <td align="center" class="number-float">0.58</td>
+        <td align="center" class="number-float">0.18</td>
+        <td align="center" class="number-float">0.29</td>
+        <td align="center" class="number-float">pos* 0.33<br>neg* 0.56</td>
+    </tr>
+    <tr>
+        <td>+ developer names</td>
+        <td align="center" class="number-float">0.58</td>
+        <td align="center" class="number-float">0.19</td>
+        <td align="center" class="number-float">0.29</td>
+        <td align="center" class="number-float">pos* 0.33<br>neg* 0.56</td>
+    </tr>
+
+    <tr class="bg-light">
+        <td>+ code snippets</td>
+        <td align="center" class="number-float">0.57</td>
+        <td align="center" class="number-float">0.19</td>
+        <td align="center" class="number-float">0.29</td>
+        <td align="center" class="number-float">pos* 0.34<br>neg* 0.56</td>
+    </tr>
+</table>
+* Notice: <a class="tool">SentiStrength-SE</a> provides two separate scores, a positive score and a negative score. We calculated the accuracy separately for each of them.
+<hr><br><br>
+
+        <a>Accuracy (F1 score) of Sentiment Analysis Tools when evaluated against <i>GT2</i>:</a>
+    <table class="table table-hover">
+    <tr class="bg-secondary">
+        <td>Preprocessing</td>
+        <td><a class="tool">Perspective API</a></td>
+        <td><a class="tool">Stanford CoreNLP</a></td>
+        <td><a class="tool">VADER</a></td>
+        <td><a class="tool">SentiStrength-SE</a></td>
+    </tr>
+    <tr>
+        <td>Remove citations</td>
+        <td align="center" class="number-float">0.35</td>
+        <td align="center" class="number-float">0.46</td>
+        <td align="center" class="number-float">0.47</td>
+        <td align="center" class="number-float">pos* 0.34<br>neg* 0.58</td>
+    </tr>
+    <tr class="bg-light">
+        <td>+ URLs, e-mail addr., signatures</td>
+        <td align="center" class="number-float">0.39</td>
+        <td align="center" class="number-float">0.43</td>
+        <td align="center" class="number-float">0.48</td>
+        <td align="center" class="number-float">pos* 0.33<br>neg* 0.56</td>
+    </tr>
+    <tr>
+        <td>+ developer names</td>
+        <td align="center" class="number-float">0.39</td>
+        <td align="center" class="number-float">0.43</td>
+        <td align="center" class="number-float">0.48</td>
+        <td align="center" class="number-float">pos* 0.33<br>neg* 0.56</td>
+    </tr>
+
+    <tr class="bg-light">
+        <td>+ code snippets</td>
+        <td align="center" class="number-float">0.39</td>
+        <td align="center" class="number-float">0.4e</td>
+        <td align="center" class="number-float">0.48</td>
+        <td align="center" class="number-float">pos* 0.34<br>neg* 0.56</td>
+    </tr>
+</table>
+* Notice: <a class="tool">SentiStrength-SE</a> provides two separate scores, a positive score and a negative score. We calculated the accuracy separately for each of them.
+<hr><br><br>
+
+        <a>Accuracy (F1 score) of Sentiment Analysis Tools when evaluated against <i>GT3</i>:</a>
+    <table class="table table-hover">
+    <tr class="bg-secondary">
+        <td>Preprocessing</td>
+        <td><a class="tool">Perspective API</a></td>
+        <td><a class="tool">Stanford CoreNLP</a></td>
+        <td><a class="tool">VADER</a></td>
+        <td><a class="tool">SentiStrength-SE</a></td>
+    </tr>
+    <tr>
+        <td>Remove citations</td>
+        <td align="center" class="number-float">0.68</td>
+        <td align="center" class="number-float">0.15</td>
+        <td align="center" class="number-float">0.27</td>
+        <td align="center" class="number-float">pos* 0.24<br>neg* 0.28</td>
+    </tr>
+    <tr class="bg-light">
+        <td>+ URLs, e-mail addr., signatures</td>
+        <td align="center" class="number-float">0.67</td>
+        <td align="center" class="number-float">0.14</td>
+        <td align="center" class="number-float">0.27</td>
+        <td align="center" class="number-float">pos* 0.25<br>neg* 0.29</td>
+    </tr>
+    <tr>
+        <td>+ developer names</td>
+        <td align="center" class="number-float">0.70</td>
+        <td align="center" class="number-float">0.15</td>
+        <td align="center" class="number-float">0.27</td>
+        <td align="center" class="number-float">pos* 0.25<br>neg* 0.28</td>
+    </tr>
+
+    <tr class="bg-light">
+        <td>+ code snippets</td>
+        <td align="center" class="number-float">0.70</td>
+        <td align="center" class="number-float">0.15</td>
+        <td align="center" class="number-float">0.27</td>
+        <td align="center" class="number-float">pos* 0.25<br>neg* 0.29</td>
+    </tr>
+</table>
+* Notice: <a class="tool">SentiStrength-SE</a> provides two separate scores, a positive score and a negative score. We calculated the accuracy separately for each of them.
+<hr><br><br>
+
+
+    </section>
+
+   <!-- Literature Review
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="literaturereview">Literature Review</h2>
+        </header>
+
+        Here we provide additional information about the papers we have found in our Literature Review (see Section III in the paper).
+        First of all, we provide a list of abbreviations of the venues of the found papers which we use in Table II of the paper.
+        Afterwards, we provide more details on the approaches of the found papers in the literature review.
+
+        <p>
+            <ul>
+                <li class="list-item"><a href="#abbreviations" class="nav-link">List of abbreviations of conferences and journals</a></li>
+                <li class="list-item"><a href="#toolliterature-dev" class="nav-link">Literature on SE-specific Tool Development (see also Section III.A.a in the paper)</a></li>
+                <li class="list-item"><a href="#toolliterature-eval" class="nav-link">Literature on SE-specific Tool Evaluation (see also Section III.A.b in the paper)</a></li>
+                <li class="list-item"><a href="#toolliterature-usage" class="nav-link">Literature on SE-specific Tool Application and Usage (see also Section III.B in the paper)</a></li>
+            </ul>
+        </p><br><br>
+
+        <h4 id="abbreviations">List of abbreviations of conferences and journals:</h4>
+<!--<p>Sentiment analysis on software-engineering-related texts is even more complicated, as they contain technical content (e.g., natural language interleaved with code snippets, etc. [<a href="https://dl.acm.org/doi/abs/10.1145/3196398.3196444">40</a>] and vocabulary that is used in a non-standard way (``to kill'' is negatively connotated in standard language, but is neutral in the software-engineering domain when talking about terminating processes).
+To obtain an overview of related work and to show how prominent sentiment analysis for the software-engineering domain is, we conducted an extensive literature review.
+For this purpose, we performed a GoogleScholar search as well as a search in the proceedings of highly-ranked software-engineering conferences (i.e., ICSE, ESEC/FSE, ASE) using the search terms <i>&ldquo;sentiment analysis in software engineering&rdquo;</i> and <i>&ldquo;toxicity in software engineering&rdquo;</i>.
+We manually inspected the search results and collected the papers that deal with analyzing the sentiment of software-engineering-related texts.
+In addition, we also collected papers mentioned in the references of collected papers.
+In particular, we grouped the relevant papers into two major categories: Papers that <i>develop or evaluate</i> sentiment analysis tools for software-engineering tasks, and papers that merely <i>apply</i> sentiment analysis tools on software-engineering-related texts to answer research questions related to sentiment.
+Our collection of papers contains 54 papers that have been published between 2013 and 2022
+in highly-ranked software-engineering conferences and journals (ICSE, MSR, EMSE, etc.), as well as a variety of specialized workshops, conferences, and journals (e.g., SEmotion).
+</p>-->
+        <p>
+            <table class="table table-hover">
+                <tr><td><b>APSEC:</b></td>
+                <td>Proc. Asia-Pacific Software Engineering Conf.</td>
+                </tr>
+                <tr><td><b>ASE:</b></td>
+                <td>Proc. Int. Conf. Automated Software Engineering</td>
+                </tr>
+                <tr><td><b>CASCON:</b></td>
+                <td>Proc. Int. Conf. Computer Science and Software Engineering</td>
+                </tr>
+                <tr><td><b>CSCW:</b></td>
+                <td>Proc. Int. Conf. Computer-Supported Cooperative Work</td>
+                </tr>
+                <tr><td><b>DASC:</b></td>
+                <td>Proc. Int. Conf. Dependable, Autonomic and Secure Computing, <br>Proc. Int. Conf. Pervasive Intelligence and Computing, <br>Proc. Int. Conf. Cloud and Big Data Computing, <br>Proc. Int. Conf. Cyber Science and Technology Congress (DASC/PiCom/CBDCom/CyberSciTech)</td>
+                </tr>
+                <tr><td><b>EASE:</b></td>
+                <td>Evaluation and Assessment in Software Engineering</td>
+                </tr>
+                <tr><td><b>EMSE:</b></td>
+                <td>Empirical Software Engineering</td>
+                </tr>
+                <tr><td><b>ENASE:</b></td>
+                <td>Proc. Int. Conf. Evaluation of Novel Approaches to Software Engineering</td>
+                </tr>
+                <tr><td><b>ESEC/FSE:</b></td>
+                <td>Proc. Europ. Software Engineering Conf. and the Int. Sympos. Foundations of Software Engineering</td>
+                </tr>
+                <tr><td><b>ESEM:</b></td>
+                <td>Proc. Int. Sympos. Empirical Software Engineering and Measurement</td>
+                </tr>
+                <tr><td><b>ICPC:</b></td>
+                <td>Proc. Int. Conf. Program Comprehension</td>
+                </tr>
+                <tr><td><b>ICSE:</b></td>
+                <td>Proc. Int. Conf. Software Engineering</td>
+                </tr>
+                <tr><td><b>ICSME:</b></td>
+                <td>Proc. Int. Conf. Software Maintenance and Evolution</td>
+                </tr>
+                <tr><td><b>IEEESoftware:</b></td>
+                <td>IEEE Software</td>
+                </tr>
+                <tr><td><b>JSS:</b></td>
+                <td>Journal of Systems and Software</td>
+                </tr>
+                <tr><td><b>MSR:</b></td>
+                <td>Proc. Int. Workshop Mining Software Repositories</td>
+                </tr>
+                <tr><td><b>SAC:</b></td>
+                <td>Proc. Symposium on Applied Computing</td>
+                </tr>
+                <tr><td><b>SANER:</b></td>
+                <td>Int. Conf. Software Analysis, Evolution, and Reengineering</td>
+                </tr>
+                <tr><td><b>SEDE:</b></td>
+                <td>Proc. Int. Conf. Software Engineering and Data Engineering</td>
+                <tr><td><b>SEmotion:</b></td>
+                <td>Proc. Int. Workshop on Emotion Awareness in Software Engineering</td>
+                </tr>
+                <tr><td><b>SSE:</b></td>
+                <td>Proc. Int. Workshop on Social Software Engineering</td>
+                </tr>
+                <tr><td><b>TOSEM:</b></td>
+                <td>ACM Transactions on Software Engineering and Methodology</td>
+                </tr>
+            </table>
+        </p><br><br>
+
+        <h4 id="toolliterature-dev">Literature on SE-specific Tool Development:</h4>
+        <p>
+        Jongeling et al. [<a href="https://link.springer.com/article/10.1007/s10664-016-9493-x">43</a>, <a href="https://ieeexplore.ieee.org/abstract/document/7332508">44</a>] investigated whether existing sentiment analysis tools from outside the software-engineering domain agree with each other when used on technical texts (e.g., StackOverflow posts or issue trackers).
+In particular, they compard the tools <a class="tool">SentiStrength</a>, <a class="tool">Alchemy</a>, <a class="tool">NLTK</a>, and <a class="tool">StanfordNLP</a>, resulting in different sentiment classifications for the different tools.
+In addition, they compared the classifications' outcomes also against a human-annotated emotion dataset from Murgia et al. [<a href="https://dl.acm.org/doi/abs/10.1145/2597073.2597086">86</a>], also resulting in a disagreement between tools and humans for up to 60% of the analyzed texts on which the humans have agreed themselves.</p>
+
+<p>
+Novielli et al. [<a href="https://dl.acm.org/doi/abs/10.1145/2804381.2804387">52</a>] manually annotated a StackOverflow dataset regarding emotions and opinions.
+They found that sentiment polarity is a complex phenomenon, which varies depending on recipients and technical matters.
+In later studies, in which they used four different technical datasets, they came to the conclusion that "reliable sentiment analysis in software engineering is possible" when existing tools are specifically tuned to the software engineering domain [<a href="https://ieeexplore.ieee.org/abstract/document/8595168">22</a>, <a href="https://ieeexplore.ieee.org/abstract/document/8595220">42</a>].</p>
+
+<p>Blaz and Becker [<a href="https://dl.acm.org/doi/abs/10.1145/2901739.2901781">25</a>] manually annotated technical tickets from a ticketing system and developed customized sentiment-analysis methods based on self-created dictionaries containing IT vocabulary and specific templates.
+Their methods have a low accuracy on negative sentiment.
+Mäntylä et al. [<a href="https://ieeexplore.ieee.org/abstract/document/7962369">54</a>] created a lexicon to detect emotional arousal in software engineering texts based on manually scored issue data.
+Ahmed et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8115623">49</a>] manually labeled 2000 code review comments and developed the tool <a class="tool">SentiCR</a> specifically tuned to code reviews.
+Islam et al. [<a href="https://ieeexplore.ieee.org/abstract/document/7962370">24</a>] manually labeled 5600 JIRA issue comments and proposed the tool <a class="tool">SentiStrength-SE</a>, which is an adaption of <a class="tool">SentiStrength</a> specifically trained on issue comments [<a href="https://www.sciencedirect.com/science/article/abs/pii/S0164121218301675">19</a>].
+In additional studies, they compared their tool against existing tools and showed that the tuning for software-engineering texts significantly improves classification accuracy [<a href="https://ieeexplore.ieee.org/abstract/document/8170140">45</a>, <a href="https://ieeexplore.ieee.org/abstract/document/8330245">46</a>].
+Moreover, they developed the tool <a class="tool">DEVA</a>, which not only detects sentiment, but also emotional states (e.g., excitement or stress) in software-engineering texts [<a href="https://dl.acm.org/doi/abs/10.1145/3167132.3167296">53</a>].
+Calefato et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8272591">87</a>] first developed the tool <a class="tool">EmoTxt</a> to extract emotions from texts and later proposed the tool <a class="tool">Senti4SD</a>, which they specifically trained and validated on StackOverflow posts [<a href="https://link.springer.com/article/10.1007/s10664-017-9546-9">51</a>].
+Ding et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3194932.3194935">48</a>] manually labled 3000 issue comments and developed the domain-specific sentiment analysis tool <a class="tool">SentiSW</a>.
+Efstathiou et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3196398.3196448">55</a>] developed the tool <a class="tool">word2vec</a> based on StackOverflow data, and Gachechiladze et al. [<a href="https://ieeexplore.ieee.org/abstract/document/7966869">56</a>] manually annotated 723 sentences from Apache issue reports to develop a tool to identify anger direction (i.e., whether anger is directed against the commenters themselves, against other people, or against objects).</p>
+
+
+<p>Sun et al. [<a href="https://ieeexplore.ieee.org/abstract/document/9462971">58</a>] developed the tool <a class="tool">SESSION</a> as an improvement over other existing tools by identifying polysemouos words in software-engineering texts.
+They demonstrated that their tool outperforms two other approaches.
+Sarker et al. [<a href="https://ieeexplore.ieee.org/abstract/document/9359299">59</a>, <a href="https://arxiv.org/abs/2202.13056">61</a>] manually labeled 6533 code review comments and 4140 Gitter messages:
+They concluded that there is room for improvement of existing tools and developed the tool <a class="tool">ToxiCR</a> to identify toxic comments in code reviews.
+To fine-tune existing tools for software engineering texts, Zhang et al. [<a href="https://ieeexplore.ieee.org/abstract/document/9240704">47</a>] proposed an approach using transformer models.</p>
+
+<p>Raman et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3377816.3381732">62</a>] manually labeled 386 "too heated" locked issues and 300 randomly chosen issues.
+Using these data, they trained a toxicity classifier based on
+comment length and word frequencies,
+also using a combination of various sentiment analysis tools.
+Qiu et al. [<a href="https://ieeexplore.ieee.org/abstract/document/9793879">63</a>] used their toxicity detection tool together with a pushback detection tool.
+They found that the combination of the two tools performs better on identifying inter-personal conflicts than the individual tools.
+In a similar way, Cheriyan et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3463274.3463805">60</a>] explored offensive language on four social coding and communication platforms based on manual annotation.
+They proposed an offensive-language detection approach as a combination of various existing tools.
+Also Sayago-Heredia et al. [<a href="https://www.researchgate.net/profile/Jaime-Sayago-Heredia/publication/360235227_Exploring_the_Impact_of_Toxic_Comments_in_Code_Quality/links/629f820d6886635d5cc71050/Exploring-the-Impact-of-Toxic-Comments-in-Code-Quality.pdf">64</a>] built their own toxicity detection tool based on various exisiting approaches.</p>
+
+<p>Chen et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3338906.3338977">65</a>] developed the tool <a class="tool">SEntiMoji</a>, which detects the sentiment in software-engineering related texts based on the used emojis.
+In contrast, Venigalla et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3468264.3473119">66</a>] developed <a class="tool">StackEmo</a> to detect the sentiment in StackOverflow posts and augment them with appropriate emojis.
+</p>
+
+<!--<p>In summary, the fact that so many tools have been developed specifically for the software-engineering domain demonstrates, on the one hand, that analyzing developers' sentiments is a highly relevant topic. However, on the other hand, the huge number of different approaches, datasets, and tools also indicates that existing approaches may not be accurate and reliable enough.
+</p>-->
+
+
+    <h4 id="toolliterature-eval">Literature on SE-specific Tool Evaluation:</h4>
+<!--<p>Beside creating new tools, researchers compared the software-engineering specific sentiment analysis tools against each other:
+</p>-->
+
+<p>Ferreira et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3479497">10</a>] compared multiple of the aforementioned tools with human-annotated data and found that these tools have a low overall accuracy and are not suited to detect incivility in software-engineering texts.
+Shen et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8890439">50</a>] compared machine-learning-based and lexicon-based tools and proposed an approach combining the different methods.
+Biswas et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8816816">57</a>] compared word embeddings derived from StackOverflow posts with word embeddings derived from GoogleNews, resulting in a better performance of the embeddings derived from GoogleNews even on software-engineering texts.
+Already in 2018, Lin et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3180155.3180195">41</a>] created a human-annotated dataset derived from 5 annotators and showed that even software-engineering related sentiment analysis tools do not work sufficiently well and &ldquo;warn[ed] the research community about the strong limitations&rdquo; of such tools.
+In 2020, Novielli et al. [<a href="https://dl.acm.org/doi/abs/10.1145/3379597.3387446">21</a>] evaluated four sentiment analysis tools for software-engineering texts on 6000 JIRA comments, 4000 StackOverflow posts, and a manually annotated dataset of 7000 GitHub pull-request comments (annotated by three persons, comments with disagreement have been removed from the dataset), showing that lexicon-based approaches outperform supervised training approaches.
+They also derived guidelines how these tools could be used &ldquo;reliably&rdquo; in the software-engineering domain (e.g., choose a tool that is appropriate for the respective purpose and tune the tool to the data source).
+</p>
+
+<p>In contrast and closest to our paper, after manually annotating 589 GitHub comments, Imtiaz et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8595360/">28</a>] came to the conclusion that sentiment analysis in the software-engineering domain is unreliable, as &ldquo;human raters also have a low agreement among themselves&rdquo;.
+They evaluated 6 sentiment analysis tools and observed that neither the tools agreed among each other nor did they agree with the consensus (which was achieved after discussing the disagreeing annotations) of their human raters.
+Their results are in line with our study.
+In fact, we are able to confirm their general results on a different dataset, which is a valuable contribution on its own.
+In addition to that, the main difference to our study (except for data source and data sampling) is that, in their study, only two human raters annotated each comment, wheares we put our analysis on a broader basis by having 6 to 9 human annotators per text.
+</p>
+
+<!-- <p>In summary, it can be stated that, in the last decade, researchers constantly developed new sentiment analysis tools for the software-engineering domain and evaluated them.
+However, the accuracy of these tools is rather low and many of the tool evaluations rely on datasets that have been specifically annotated by the tool developers on their own.
+All in all, this shows that sentiment analysis in the software-engineering domain is a long-burning issue and, still, a hot topic in software-engineering research.
+</p>-->
+
+    <h4 id="toolliterature-usage">Literature on SE-specific Tool Application and Usage:</h4>
+
+<p>There are lots of sentiment analysis tools specifically designed for software engineering.
+Beside their development and evaluation, these tools have also been used in various studies to empirically answer specific research questions.
+In what follows, we provide an overview of relevant studies, but due to the concerns raised above, their results have to be taken with a grain of salt.
+</p>
+
+<p>In general, emotions and sentiment polarity are present in user and developer mailing lists [<a href="https://mcis.cs.queensu.ca/publications/2014/cascon14.pdf">78</a>] as well as in many GitHub projects [<a href="https://www.sciencedirect.com/science/article/abs/pii/S0164121215000485">68</a>].
+Hence, extracting emotions could be useful for improving emotional awareness in software projects [<a href="https://dl.acm.org/doi/abs/10.1145/2491411.2494578">72</a>].
+Whereas one study found that commit messages written on Mondays are more negative than on other days [<a href="https://dl.acm.org/doi/abs/10.1145/2597073.2597118">69</a>], other researchers found that the most negative sentiment is present in comments written on Tuesdays [<a href="https://dl.acm.org/doi/abs/10.1145/2901739.2903501">71</a>].
+In addition, there seems to be a correlation between toxic commit messages and various code-quality metrics [<a href="https://www.researchgate.net/profile/Jaime-Sayago-Heredia/publication/360235227_Exploring_the_Impact_of_Toxic_Comments_in_Code_Quality/links/629f820d6886635d5cc71050/Exploring-the-Impact-of-Toxic-Comments-in-Code-Quality.pdf">64</a>].
+Whereas most GitHub projects are neutral, there are 10\% more projects with negative sentiment than projects with positive sentiment [<a href="https://dl.acm.org/doi/abs/10.1145/2901739.2903501">71</a>].
+Projects using Java tend to be more negative than projects using other programming languages [<a href="https://dl.acm.org/doi/abs/10.1145/2491411.2494578">72</a>].
+</p>
+
+<p>Researchers found that commit messages of bug-introducing and also of bug-fixing commits have a more positive sentiment than other commit messages [<a href="https://www2.cose.isu.edu/~minhazzibran/resources/MyPapers/SentimentBug_SEDE2018.pdf">70</a>].
+In contrast, other studies reveal that commit messages of commits that introduce, precede, or fix bugs are more negative than other commit messages [<a href="https://ieeexplore.ieee.org/abstract/document/9054801">73</a>].
+Sentiment analysis can also be used to distinguish between buggy and correct commits [<a href="https://ieeexplore.ieee.org/abstract/document/9054801">73</a>].
+Moreover, negative sentiment is affected by continuous-integration build processes (e.g., failing builds), but negative sentiment also affects the build process (e.g., leads to failing builds) [<a href="https://ieeexplore.ieee.org/abstract/document/7962396">67</a>].
+</p>
+
+<p>When comparing different platforms, there appears to be more positive sentiment on GitHub issue discussions than in StackOverflow posts [<a href="https://link.springer.com/article/10.1007/s10664-021-10058-6">83</a>].
+When writing an answer to StackOverflow posts, avoiding negative attitude increases one's chances to get the answer accepted [<a href="https://ieeexplore.ieee.org/abstract/document/7180110">74</a>].
+Both, positive and negative sentiment in discussions, seem to increase developer productivity, though [<a href="https://dl.acm.org/doi/abs/10.1145/3387940.3392224">75</a>].
+</p>
+
+<p>Sentiment also seems to affect the issue fixing time, as issue discussions that contain negative sentiment tend to have a longer fixing time.
+On the contrary, extremely polite or extremely impolite issues both end up in a shorter issue fixing time than in average time [<a href="https://ieeexplore.ieee.org/abstract/document/7180089">76</a>, <a href="https://ieeexplore.ieee.org/abstract/document/7832930">77</a>].
+As different studies targeting the same research question lead to contrary results, this again encourages us that simply applying sentiment analysis tools without further validation is unreliable.
+</p>
+
+<p>Further studies on GitHub issues showed that there are various forms of toxic comments:
+In most cases, the toxic comment in an issue is the first comment which opens the issue.
+Often, there is no (concrete) target, but also targeting at people or at source code happens.
+Though most of the toxic comments contain a complaint, only little of them appear to be aggressive.
+The authors of toxic comments come from both sides, external people and project members [<a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/ckaestne/pdf/icse22_toxicity.pdf">81</a>, <a href="https://dl.acm.org/doi/abs/10.1145/3468264.3473492">82</a>].
+The first reply (i.e., the second comment), however, in general, is neutral [<a href="https://arxiv.org/abs/2104.02933">84</a>]
+Moreover, the form and intensity of toxicity varies between projects and decreased over time from 2012 to 2018 [<a href="https://dl.acm.org/doi/abs/10.1145/3377816.3381732">62</a>].
+In general, &ldquo;heated&rdquo; locked issues %are treated differently in different projects:
+%In general, such issues
+have the same number of participants and comments as regular issues; only about 9% of the comments are uncivil [<a href="https://arxiv.org/abs/2204.00155">85</a>].
+Issues that contain comments with negative sentiment tend to be reopened more often than issues without negative sentiment [<a href="https://ieeexplore.ieee.org/abstract/document/8825006">80</a>].
+</p>
+
+<p>Closest to our aim, Ferreira et al. [<a href="https://ieeexplore.ieee.org/abstract/document/8825084">79</a>] assessed on the LKML whether the maintainers' sentiment changed after Linus Torvalds's temporary break.
+Similar to our methodology, they analyzed only e-mail threads that had, at least, two e-mails and excluded patches, removed citations and greetings, and ignored e-mail addresses.
+In summary, they did not find any significant changes in the maintainers' sentiment between 2017 and 2019.
+</p>
+
+<!--<p>All in all, the results of all the above mentioned studies are very interesting and diverse (sometimes even contradicting), but due to the concerns raised above, one cannot fully rely on these results.
+This is why we aimed at evaluating sentiment analysis tools before using them, which is why we started with our human annotation study.
+</p>-->
+
+    </section>
+
+   <!-- Downloads
+    ================================================== -->
+    <section>
+        <header>
+            <h2 id="downloads">Downloads</h2>
+        </header>
+
+        <ul>
+            <li>
+                <a href="downloads/aggressiveness_study.zip">Annotation data, tool results, and scripts used for preprocessing and evaluation</a>
+
+            </li>
+        </ul>
+
+        <p>
+            <strong>Note:</strong>
+            For data privacy reasons, we cannot distribute the complete raw data that we gathered using our data-extraction tools.
+            Names and message ids have been anonymized.
+            Please refer to the respective tools to produce a set of data for yourself.
+        </p>
+    </section>
+
+
+</main>
+
+
+<footer>
+    <div class="container px-0">
+    </div>
+</footer>
+
+
+<!-- JavaScript -->
+<script src="./bootstrap/js/jquery-3.4.1.slim.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<script src="./bootstrap/js/ekko-lightbox.min.js"></script>
+<script src="./bootstrap/js/jquery-number-2.1.3.min.js"></script>
+<script>
+    // enable ekko-lightbox
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+                alwaysShowClose: false,
+                wrapping: false
+            });
+    });
+
+    // format any <span class="number"></span> elements using the JQuery Number plugin
+    // the 'true' signals we should read and replace the text contents of the target element.
+    $('.number').number(true, 2, ".", ",");
+    $('.number-int').number(true, 0, ".", ",");
+</script>
+
+</body>
+</html>

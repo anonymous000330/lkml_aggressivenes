@@ -1,0 +1,51 @@
+.cite_reply {
+    background-color: rgba(137, 148, 129, 0.24);
+    color: #637972;
+    font-style: oblique;
+    padding: 5px 25px 5px 25px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.source_elem {
+    background-color: rgba(0, 103, 148, 0.31);
+    border-radius: 5px;
+
+
+}
+
+.source_block {
+    background-color: rgba(0, 103, 148, 0.3);
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px 20px;
+}
+
+.email_addr {
+    background-color: rgba(147, 231, 255, 0.45);
+    color: #008bbf;
+    border-radius: 6px;
+}
+
+.url {
+    background-color: rgba(147, 231, 255, 0.45);
+    color: #008bbf;
+    border-radius: 10px;
+}
+
+.dev_name{
+    padding: 1px;
+    color: #008bbf;
+    font-weight: bold;
+    font-size: 0.9em;
+    background-color: rgba(147, 231, 255, 0.45);
+    border-radius: 3px;
+}
+
+.dev_sender_name{
+    background-color: rgba(188, 239, 222, 0.76);
+}
+
+.logs_block {
+    background-color: greenyellow;
+}

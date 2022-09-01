@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Annotated Samples</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="annotation-css/style.css" rel="stylesheet" type="text/css">
+    <link href="annotation-css/tokens.css" rel="stylesheet" type="text/css">
+    <link href="annotation-css/accordion.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<main>
+    <div class="container">
+        <br>
+        <p>Click on a panel to expand it. The samples mostly contain excerpts of longer e-mails to showcase specific
+            types.</p>
+
+        <button class="accordion">Samples that contain attacks or offensive language</button>
+        <div class="panel">
+
+            <div class="row">
+                <div class="col-md-7 sample">Oh. THAT'S JUST INCOMPETENT. What the *fuck* is the point of having
+                    per-CPU data, and then using it for the wrong CPU? Stop doing that idiocy. Put the per-cpu
+                    data on the senders side, and stop the idiocy. You are going to get cross-CPU cacheline
+                    bouncing anyway, there's no way to avoid it, but as long as you do it on the wrong CPU's
+                    local data, you're missing the whole POINT of having per-cpu data in the first place.
+                </div>
+                <div class="col-sm">
+                    <span class="target">Targeted at the recipient of the message.</span><span class="target">Another kind attack or offensive language.</span><span
+                        class="overall">strongly aggressive</span>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-7 sample">
+                    Excuse me, but "some drivers" have no fucking business to mess with uid and gid assignments in
+                    the first place...
+                </div>
+                <div class="col-sm"><span
+                        class="target">Another kind attack or offensive language.</span><span class="overall">strongly aggressive</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">
+                    Yeah, Dan was also too lazy to explain the need, and had like 3 typoes in the inadequate
+                    changelog he had. He also fails to explain why he needs the timestamp twice, as do you for that
+                    matter. Does not inspire confidence. Now please all untwist your panties and try and submit a
+                    proper patch.
+                </div>
+                <div class="col-sm"><span class="target">Targeted at a third party.</span><span
+                        class="overall">mildly aggressive</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">No, I don't want to know if this call site exists or not. This stupid
+                    "tracepoint_probe_register()" that activates a tracepoint by name. But
+                    if that tracepoint doesn't exist, it just returns normally as if
+                    everything is fine and dandy. WTF!</div>
+                <div class="col-sm"><span class="target">Targeted at code / software / technical concepts.</span><span class="overall">mildly aggressive</span> </div>
+            </div>
+        </div>
+
+        <button class="accordion">Samples that do not contain attacks or offensive language</button>
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-7 sample">
+                    Anyway, to clarify: the printk's are harmless, since the IO past the end of the device is just
+                    error'ed out, and always has been. Which is why I was considering just removing them.
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span> <span class="overall">neutral</span></div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-7 sample">
+                    I don't know what to say about this one. -rc3 had fewer new commits than -rc4 does, and I don't
+                    like that trend. I'm not happy about the size of some of the changes (iscsi target, some other
+                    random drivers), but at the same time I have to say that absolutely nothing here makes me feel
+                    worried.
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span>
+                    <span class="overall">neutral</span></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-7 sample">I sightly disagree with you. /dev/tty[1..64] is not directly bound to
+                    VT. You can have systems with CONFIG_VT=n and still have /dev/tty[1..64]. Linux supports this
+                    perfectly. UML does not have VT because having virtual consoles makes no sense. (Same like on
+                    s390)
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span>
+                    <span class="overall">neutral / friendly</span>
+                    <div class="note">→ neutral or friendly: the author expresses and explains her/his disagreement in a respectful manner</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">[Recipient of email],
+
+                    Thanks so much for improving the REPORTING-BUGS file. With your
+                    changes it looks way better!
+
+
+                    - [Author of email]
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span>
+                    <span class="overall">friendly</span></div>
+            </div>
+
+        </div>
+
+        <button class="accordion">Difficult samples</button>
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-7 sample">
+                    That's really nasty; mntput_no_expire() (and thus mntput()) wants
+                    br_write_lock()/br_write_unlock(). Right now we *know* that mntput() is non-blocking in
+                    situations when we are holding more than one reference. With that kind of change that isn't true
+                    anymore - one needs to have long-term refs to make it safe. And that's not going to be fun to
+                    audit...
+
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span> <span class="overall">neutral</span>
+                    <br>
+                    <div class="note"> → from the context/the narrative we infer that "nasty" is not used aggressively
+                    in this example</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">
+                    I *really* hate the timing of this. The code that is only impacted by BOOST I cannot find it in
+                    myself to care about, and I'd be willing to consider it basically EXPERIMENTAL and just pulling
+                    it.
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span><span class="overall">neutral</span>
+                    <div class="note">→ has a negative tone, not necessarily aggressive</div></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">
+                    I don't believe that it's right. Note that if you *do* race there, you are fucked regardless of
+                    sysctls - ppdev.c::register_device() racing with itself will do tons of fun things all by itself
+                    (starting with two threads allocating different pdev and both setting pp->pdev). IOW, *if*
+                    that's what we are hitting here, you've only papered over the visible symptom.
+                </div>
+                <div class="col-sm"><span class="target">Another kind of attack or offensive language.</span><span class="overall">neutral</span>
+                    <br><div class="note">→ offensive language, not necessarily aggressive</div></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">
+                    I *really* hate making br_write_lock() blocking and explicit get_online_cpus() around it isn't really any better. Too much PITA verifying correctness after the locking change.
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span><span class="overall">neutral</span>
+                    <div class="note">→ has a negative tone, not necessarily aggressive</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">
+                    In the last couple of days I _have_ merged 50+ trees, and while there's
+                    been some 'heated discussion' about some of them (you know who you are ;),
+                    I'm hoping that we're actually in reasonably good shape even though it's
+                    in the middle of the merge window, and that people will test out the
+                    snapshot kernels even though I'm not ready to do a -rc1 release.
+                    <br><br>
+                    So go out and test.<br><br>
+                    PS. And to get wider distribution for this message: Digg users - you're
+                    all a bunch of Wanking Walruses. And you can quote me on that.
+                </div>
+                <div class="col-sm"><span class="target">Targeted at a third party.</span><span class="overall">friendly</span><span class="meta">meta</span>
+                    <div class="note">→ even though the e-mail contains an attack targeting a third party (Digg users), the overall tone is friendly</div></div>
+            </div>
+        </div>
+
+
+        <button class="accordion">The OTHER category &mdash; auto-generated, SPAM and corrupted</button>
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-7 sample">1.5.4.2.316.gf7a7</div>
+                <div class="col-sm"><span class="other">auto-generated</span>
+                    <div class="note">→ if this text the only text in the e-mail, consider it auto-generated</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7 sample">2.34-stable review patch. If anyone has any objections, please let me know.</div>
+                <div class="col-sm"><span class="other">auto-generated</span>
+                    <div class="note">→ if this text the only text in the e-mail, consider it auto-generated</div></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">Congratulations!<br><br>
+
+                    Get your FREE* $1500
+                    Pottery Barn Gift Card!
+<br><br>
+                    Please see here to
+                    claim your prize!
+                </div>
+                <div class="col-sm"><span class="other">SPAM</span></div>
+            </div>
+        </div>
+
+        <button class="accordion">meta-talk</button>
+        <div class="panel">
+
+            <div class="row">
+                <div class="col-md-7 sample">
+                    When he tells you "stop saying such idiocies, you're a f*cking moron", he doesn't really mean
+                    that, he means that he's very disappointed that *that person* says this or that, so he takes the
+                    time to say it to that person. The proof is that most often in the next mail he explains to the
+                    person how to do the thing right. He just tries to ensure that the person he's telling words to
+                    understands that he/she has crossed a line.
+                </div>
+                <div class="col-sm"><span class="target">Being reported or quoted.</span> <span class="meta">meta</span><span class="overall">neutral</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">Sure it can be hard for newcomers but I don't remember having read him
+                    scold a newcomer. So that's probably not that much of a problem in the end, and helps getting
+                    the things done in time. I'm much more concerned by the "administrative" development mode that
+                    we're taking in fact and that some people seem to have expressed in this thread (what patch flow
+                    to follow, when to send/not to send, etc...).
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span><span class="meta">meta</span><span class="overall">neutral</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 sample">I heard the word "benevolent dictator" in conjunction with [CC
+                    recipient], dunno, whether he said it or someone else said it or whatnot, but still: Is the
+                    kernel developer community a *military* organisation? Just wanted to raise awareness to this
+                    wording. As you pointed out repeatedly: Words make a difference. A huge one, I think.
+                </div>
+                <div class="col-sm"><span class="target">This is not an attack and the e-mail does not contain offensive language.</span><span class="meta">meta</span><span class="overall">neutral</span></div>
+            </div>
+        </div>
+
+    </div>
+    <p align="center"><a href="index.html">Back to the supplementary website.</a></p>
+
+</main>
+
+<!-- jQuery library -->
+<script src="js/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script type="text/javascript" src="js/accordion.js"></script>
+</body>
+</html>

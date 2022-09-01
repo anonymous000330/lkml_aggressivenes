@@ -1,0 +1,96 @@
+/* Style the buttons that are used to open and close the accordion panel */
+
+body {
+   background: #d4d4d4;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active {
+    background-color: #005978;
+    color: white;
+}
+
+.accordion:hover {
+    background-color: #0089bc;
+    color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: whitesmoke;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.sample {
+    margin: 4px;
+    padding: 8px;
+    background-color: #d1e6ee;
+    border-radius: 5px;
+    font-family: courier;
+}
+
+div.row span {
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #abfdff;
+    color: #003d58;
+    padding: 5px 10px;
+    margin: 2px;
+}
+
+div.row  span.target {
+
+}
+div.row  span.overall {
+    background-color: #ffda8e;
+
+
+}
+div.row  span.meta {
+    background-color: #ebc0ff;
+
+
+}
+div.row span.other {
+    background-color: #dbff33;
+}
+
+div.row div.note {
+    border-radius: 3px;
+    background-color: #d0d0d0;
+    color: #454545;
+}
+
+.row {
+    padding-bottom: 20px;
+}
+
